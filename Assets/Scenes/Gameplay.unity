@@ -955,7 +955,7 @@ PrefabInstance:
     - target: {fileID: 606443623260057349, guid: c6d017b2a9d70344fb3f8bbace38b99a,
         type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3077813560739176347, guid: c6d017b2a9d70344fb3f8bbace38b99a,
         type: 3}
@@ -1020,17 +1020,17 @@ PrefabInstance:
     - target: {fileID: 4190303840180593212, guid: c6d017b2a9d70344fb3f8bbace38b99a,
         type: 3}
       propertyPath: acceleration
-      value: 3000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 4190303840180593212, guid: c6d017b2a9d70344fb3f8bbace38b99a,
         type: 3}
       propertyPath: maxTurnAngle
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4190303840180593212, guid: c6d017b2a9d70344fb3f8bbace38b99a,
         type: 3}
       propertyPath: breakingForce
-      value: 3000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 7876863240198918737, guid: c6d017b2a9d70344fb3f8bbace38b99a,
         type: 3}
