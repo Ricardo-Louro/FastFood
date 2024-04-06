@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    //private static List<Point> points;
+    private PointController pointController;
     public bool completed = false;
     private new Renderer renderer;
     [SerializeField] private Material completedMaterial;
@@ -10,6 +10,8 @@ public class Point : MonoBehaviour
 
     private void Start()
     {
+        pointController = FindObjectOfType<PointController>();
+
         renderer = GetComponent<Renderer>();
         
         /*
@@ -25,6 +27,8 @@ public class Point : MonoBehaviour
     {
         completed = true;
         renderer.material = completedMaterial;
+        
+        pointController.CheckForCompletion();
     }
 
     private void OnTriggerEnter(Collider other)
