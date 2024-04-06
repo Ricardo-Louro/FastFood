@@ -1,7 +1,14 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    private UIController uiController;
+    private Rigidbody rb;
+
+    [SerializeField] private AudioSource breakingAudio; 
+    [SerializeField] private AudioSource acceleratingAudio; 
+
     [SerializeField] private WheelCollider frontRight;
     [SerializeField] private WheelCollider backRight;
     [SerializeField] private WheelCollider frontLeft;
@@ -12,10 +19,10 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform backRightTransform;
     [SerializeField] private Transform frontLeftTransform;
     [SerializeField] private Transform backLeftTransform;
-
-
     
-    [SerializeField] private float acceleration;
+    [SerializeField] private float baseAccel;
+    [SerializeField] private float catchupVelocity;
+    [SerializeField] private float catchupAccel;
     [SerializeField] private float breakingForce;
     [SerializeField] private float maxTurnAngle;
     
@@ -23,13 +30,58 @@ public class CarController : MonoBehaviour
     private float currentBreakForce = 0f;
     private float currentTurnAngle = 0f;
 
+
+    private void Start()
+    {
+        uiController = FindObjectOfType<UIController>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        Debug.Log("Current Accel: " + currentAcceleration);
+
+        uiController.UpdateSpeedUI(rb.velocity.magnitude);
+
+        breakingAudio.pitch = Random.Range(.8f, 1);
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            breakingAudio.Play();
+        }
+        else if(Input.GetKeyUp(KeyCode.Space))
+        {
+            breakingAudio.Stop();
+        }
+
+        if(Input.GetAxis("Vertical") <= .7f)
+        {
+            acceleratingAudio.Stop();
+        }
+        else
+        {
+            if(!acceleratingAudio.isPlaying)
+            {
+                acceleratingAudio.pitch = Random.Range(0.5f, 1);
+                acceleratingAudio.Play();
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
-        currentAcceleration = acceleration * Input.GetAxis("Vertical");
+        if(rb.velocity.magnitude <= catchupVelocity)
+        {
+            currentAcceleration = catchupAccel * 1000 * Input.GetAxis("Vertical");
+        }
+        else
+        {
+            currentAcceleration = baseAccel * 1000 * Input.GetAxis("Vertical");
+        }
 
         if(Input.GetKey(KeyCode.Space))
         {
-            currentBreakForce = breakingForce;
+            currentBreakForce = breakingForce * 1000;
+            
         }
         else
         {

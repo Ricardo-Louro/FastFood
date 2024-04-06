@@ -19,6 +19,6 @@ public class CameraController : MonoBehaviour
     {
         transform.position = cameraPos.position;
         rotation.y = cameraPos.eulerAngles.y;
-        transform.eulerAngles = rotation;   
+        transform.eulerAngles = rotation;
     }
 }

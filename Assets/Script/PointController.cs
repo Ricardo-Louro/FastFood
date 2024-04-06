@@ -1,13 +1,14 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PointController : MonoBehaviour
 {
+    private UIController uiController;
     private Point[] points;
 
     // Start is called befsore the first frame updates
     private void Start()
     {
+        uiController = FindObjectOfType<UIController>();
         points = FindObjectsByType<Point>(FindObjectsSortMode.None);
     }
 
@@ -26,13 +27,7 @@ public class PointController : MonoBehaviour
         
         if(completed)
         {
-            CompleteLevel();
+            uiController.CompleteLevel();
         }
-    }
-
-
-    private void CompleteLevel()
-    {
-        Debug.Log("Level complete!");
     }
 }
