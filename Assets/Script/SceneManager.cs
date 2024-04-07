@@ -6,16 +6,20 @@ public class SceneChanger : MonoBehaviour
     [SerializeField] private Object currentScene;
     [SerializeField] private Object nextScene;
 
-    private void SwitchScene(string sceneName)
+    public void SwitchToNextScene()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(nextScene.name);
+    }
+    public void SwitchToReloadScene()
+    {
+        SceneManager.LoadScene(currentScene.name);
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            SwitchScene(currentScene.name);
+            SwitchToNextScene();
         }
     }
 }
