@@ -8,13 +8,16 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject levelComplete;
     [SerializeField] private GameObject levelFail;
     [SerializeField] private TextMeshProUGUI levelCompleteTimer;
-
+    private PointController pointController;
+    [SerializeField] private TextMeshProUGUI deliveries;
     private TimerManager timerManager;
+
     
 
     private void Start()
     {
         timerManager = FindObjectOfType<TimerManager>();
+        pointController = FindObjectOfType<PointController>();
     }
 
     public void UpdateSpeedUI(float value)
@@ -25,6 +28,11 @@ public class UIController : MonoBehaviour
     public void UpdateTimeUI(float value)
     {
         timer.text = "Time: " + value.ToString("00.##");
+    }
+
+    public void UpdateDeliveriesUI(int value)
+    {
+        deliveries.text = "Deliveries: " + value + "/" + pointController.pointAmount;
     }
 
     public void CompleteLevel()
