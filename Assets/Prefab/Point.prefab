@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 32862216673172796}
   - component: {fileID: 5964309414790619248}
   - component: {fileID: 6435172487978158752}
+  - component: {fileID: 5871895497171422744}
   m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3509a442d874ba848b01c0175b0c972d, type: 2}
+  - {fileID: 2100000, guid: daba11008897e3044a4a7cdbbd557507, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,4 +120,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completed: 0
-  completedMaterial: {fileID: 2100000, guid: daba11008897e3044a4a7cdbbd557507, type: 2}
+--- !u!95 &5871895497171422744
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523845223776042279}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a06c24b7ed9fb0444acc0682e9fa78c3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

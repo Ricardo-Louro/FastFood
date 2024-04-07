@@ -5,28 +5,21 @@ public class Point : MonoBehaviour
     private PointController pointController;
     public bool completed = false;
     private new Renderer renderer;
-    [SerializeField] private Material completedMaterial;
-    
+    private Animator animator;
 
     private void Start()
     {
         pointController = FindObjectOfType<PointController>();
 
         renderer = GetComponent<Renderer>();
-        
-        /*
-        if(points == null)
-        {
-            points = new List<Point>();
-            points.Add(this);
-        }
-        */
+
+        animator = GetComponent<Animator>();
     }
 
     private void SetActive()
     {
         completed = true;
-        renderer.material = completedMaterial;
+        animator.Play("Vanish");
         
         pointController.CheckForCompletion();
     }
