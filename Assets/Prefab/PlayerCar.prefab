@@ -295,8 +295,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.9732614, y: 1.5455399, z: 2.3761454}
-  m_Center: {x: -0.234447, y: 1.479414, z: 0.013523102}
+  m_Size: {x: 4.9732614, y: 1.886411, z: 2.3761454}
+  m_Center: {x: -0.234447, y: 1.3089784, z: 0.013523102}
 --- !u!1 &7512586064151572826
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +491,9 @@ MonoBehaviour:
   backRightTransform: {fileID: 4355918466258954404}
   frontLeftTransform: {fileID: 5125109588871885087}
   backLeftTransform: {fileID: 5852072112390420175}
-  acceleration: 5000
+  baseAccel: 0
+  catchupVelocity: 0
+  catchupAccel: 0
   breakingForce: 5000
   maxTurnAngle: 30
 --- !u!82 &7879131442337948357

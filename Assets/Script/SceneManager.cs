@@ -15,11 +15,16 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(currentScene.name);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            SwitchToNextScene();
+            SwitchToReloadScene();
         }
     }
 }
